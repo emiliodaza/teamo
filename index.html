@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo mucho :3 </title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for Inter font and custom colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-pink': '#FFC0CB', // Light Pink
+                        'secondary-gold': '#FFD700', // Gold
+                        'deep-rose': '#C04368', // Deep Rose/Maroon
+                        'light-blush': '#FFF0F5', // Very light, creamy pink background
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar styling for a softer look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFD700; /* Gold track */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFC0CB; /* Primary Pink thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C04368; /* Deep Rose hover */
+        }
+        /* Fade-in animation for main content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        /* Custom glow for titles */
+        .gold-glow {
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        /* Custom list style */
+        .list-circle {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .list-circle li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .list-circle li::before {
+            content: '•'; /* Unicode circle/dot */
+            color: #FFD700; /* Gold */
+            font-size: 1.5rem;
+            line-height: 1;
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+        }
+    </style>
+</head>
+<body class="bg-light-blush min-h-screen flex flex-col font-sans">
+
+    <!-- 1. Lock Screen / Date Input -->
+    <div id="lockScreen" class="fixed inset-0 bg-deep-rose flex items-center justify-center z-50 transition-opacity duration-1000">
+        <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl max-w-sm w-full text-center border-b-8 border-secondary-gold">
+            <h2 class="text-3xl font-bold mb-6 text-deep-rose">¡Felices dos meses mi amor 🥺✨!</h2>
+            <p class="text-gray-600 mb-6">Pon nuestra fecha para acceder a la sorpresa uwu jsjs</p>
+            <div class="flex space-x-4 justify-center">
+                <input type="number" id="inputDay" placeholder="Día (e.g., 18)" min="1" max="31" class="w-1/2 p-3 border-2 border-primary-pink rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-rose text-center transition duration-300">
+                <input type="number" id="inputMonth" placeholder="Mes (e.g., 8)" min="1" max="12" class="w-1/2 p-3 border-2 border-primary-pink rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-rose text-center transition duration-300">
+            </div>
+            <button id="unlockButton" class="w-full mt-6 bg-primary-pink text-white py-3 rounded-lg font-semibold hover:bg-deep-rose transition duration-300 shadow-lg">
+                Pulsa aquí 💞
+            </button>
+            <p id="errorMessage" class="text-red-500 mt-4 h-5"></p>
+        </div>
+    </div>
+
+    <!-- 2. Main Anniversary Content -->
+    <main id="mainContent" class="hidden px-4 md:px-8 lg:px-12 animate-fadeIn flex-grow max-w-7xl mx-auto">
+        <!-- Header: Title and Timer -->
+        <header class="text-center mb-12 bg-white p-6 rounded-2xl shadow-xl border-t-4 border-deep-rose">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-deep-rose mb-2 gold-glow">
+                Felices dos meses mi niña hermosa!
+            </h1>
+            <p class="text-xl text-gray-500 mb-6">18 Agosto 2025 &rarr; 18 Octubre 2025</p>
+
+            <div class="p-4 bg-primary-pink text-white rounded-xl shadow-lg inline-block border-2 border-secondary-gold">
+                <h2 class="text-lg font-semibold uppercase tracking-widest mb-1">Tiempo desde que empezó nuestra bonita historia 💞</h2>
+                <div id="timer" class="text-3xl md:text-5xl font-mono font-bold">
+                    0 Días 00:00:00
+                </div>
+            </div>
+        </header>
+
+        <!-- Section 1: Love Reasons -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-deep-rose mb-6 border-b-2 border-secondary-gold pb-2">
+                Tres Razones Principales Por Las Que Me Encantas
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Reason 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-pink hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                    <h3 class="text-xl font-semibold text-deep-rose mb-3">Tu tierna forma de tratarme</h3>
+                    <p class="text-gray-700">
+                        Me encanta muchísimo escuchar tu preciosa tu voz cuando te emocionas y te siento como niña chiquita. La forma en como me tomas el cabello y me mimas y como eres considerada conmigo y estás para mi. Eres un amor tan gentil que adoro mucho.
+                    </p>
+                </div>
+                <!-- Reason 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-pink hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                    <h3 class="text-xl font-semibold text-deep-rose mb-3">La Nobleza De Tu Corazón</h3>
+                    <p class="text-gray-700">
+                        Que seas una persona tan considerada con otros en situaciones difíciles y que seas llena de gratitud con los que te apoyaron me parece muy hermoso. Ese sacrificio para mi es un reflejo de profunda nobleza y me hace feliz tener una personita tan humana a mi lado.
+                    </p>
+                </div>
+                <!-- Reason 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-pink hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                    <h3 class="text-xl font-semibold text-deep-rose mb-3">Tus ojitos y preciosa carita</h3>
+                    <p class="text-gray-700">
+                        Me encanta muchísimo la forma de tu rostro, como tu cabello reluce la belleza de tus ojitos, y cómo ellos me cautivan mucho siempre que los veo transmiten tanta paz y ternura. Me encantan mucho tus ojitos!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+<section class="mb-12 pt-8">
+    
+    <h2 class="text-3xl font-bold text-deep-rose mb-6 border-b-2 border-secondary-gold pb-2 text-center">
+        Fotitos jsjs 🥰
+    </h2>
+    
+    <div class="flex justify-center">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 rounded-xl overflow-hidden shadow-2xl p-3 bg-primary-pink w-full sm:w-auto">
+            
+            <img src="https://www.dropbox.com/scl/fi/23r0w55vte6p7jyrt1wg7/me.jpg?rlkey=uwuui5xqbpbxrbhyt6wzlzzd1&st=2f0ifj43&raw=1" 
+                  alt="Yio jsjs" 
+                  class="w-full h-full object-cover aspect-[4/3] transition duration-500 hover:opacity-80 rounded-lg shadow-md border-2 border-secondary-gold" 
+                  onerror="this.onerror=null;this.src='https://placehold.co/400x300/C04368/ffffff?text=Error';">
+            
+            <img src="https://www.dropbox.com/scl/fi/1a7cg6oay3ov224vq4tyi/Danna.jpg?rlkey=mzsm6tuxjefsdzkuhykuc8zet&st=h6rikgq8&raw=1" 
+                  alt="Mi niña hermosa" 
+                  class="w-full h-full object-cover aspect-[5/3] transition duration-500 hover:opacity-80 rounded-lg shadow-md border-2 border-secondary-gold" 
+                  onerror="this.onerror=null;this.src='https://placehold.co/500x350/FFD700/C04368?text=Error';">
+                  
+            <img src="https://www.dropbox.com/scl/fi/404kictel5thsjaeu42vo/nuestras_manos.jpg?rlkey=qoy98nxp8dbuua1bcpwrwj5jt&st=16jjgxed&raw=1" 
+                  alt="Nuestras manitos" 
+                  class="w-full h-full object-cover aspect-[3/4] transition duration-500 hover:opacity-80 rounded-lg shadow-md border-2 border-secondary-gold" 
+                  onerror="this.onerror=null;this.src='https://placehold.co/300x400/FFC0CB/C04368?text=Error';">
+            
+            <img src="https://www.dropbox.com/scl/fi/9lh0wpl09rbfzppnwcfng/mi-amor.jpg?rlkey=un0zp7ycw076tnlg8el8jufc4&st=cdwzv2a4&raw=1" 
+                  alt="Mi amor>" 
+                  class="w-full h-full object-cover aspect-square transition duration-500 hover:opacity-80 rounded-lg shadow-md border-2 border-secondary-gold" 
+                  onerror="this.onerror=null;this.src='https://placehold.co/350x350/FFC0CB/C04368?text=Photo+4';">
+
+            <img src="https://www.dropbox.com/scl/fi/3gtyeuvhs8mpm2reyssov/yio.jpg?rlkey=04mtxe8v6029mdprryxzsjwa9&st=wxup67pf&raw=1" 
+                  alt="Yio" 
+                  class="w-full h-full object-cover aspect-[4/5] transition duration-500 hover:opacity-80 rounded-lg shadow-md border-2 border-secondary-gold" 
+                  onerror="this.onerror=null;this.src='https://placehold.co/400x500/C04368/ffffff?text=Photo+5';">      
+        </div>
+    </div>
+</section>
+        <!-- New Section 3: Our Soundtrack (Playlist) -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-deep-rose mb-6 border-b-2 border-secondary-gold pb-2">
+                Our Official Soundtrack
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Song 1 -->
+                <div class="bg-white p-5 rounded-xl shadow-lg flex items-center space-x-4 border-2 border-secondary-gold">
+                    <span class="text-3xl text-deep-rose">🎶</span>
+                    <div>
+                        <h3 class="font-bold text-primary-pink">Canción 1: "Creo en tí"</h3>
+                        <p class="text-sm text-gray-600">Reik</p>
+                        <p class="text-xs italic text-gray-500">Me recuerda a cuando nos empezamos a enamorar 🥺✨</p>
+                    </div>
+                </div>
+                <!-- Song 2 -->
+                <div class="bg-white p-5 rounded-xl shadow-lg flex items-center space-x-4 border-2 border-secondary-gold">
+                    <span class="text-3xl text-deep-rose">🎧</span>
+                    <div>
+                        <h3 class="font-bold text-primary-pink">Canción 2: "Paris in the Rain"</h3>
+                        <p class="text-sm text-gray-600">Lauv
+                        <p class="text-xs italic text-gray-500">Cuando te canté está canción te emocionaste muchísimo y me esforcé muchísimo para causar ello en ti</p>
+                    </div>
+                </div>
+                <!-- Song 3 -->
+                <div class="bg-white p-5 rounded-xl shadow-lg flex items-center space-x-4 border-2 border-secondary-gold">
+                    <span class="text-3xl text-deep-rose">🌟</span>
+                    <div>
+                        <h3 class="font-bold text-primary-pink">Canción 3: "No sé tú"</h3>
+                        <p class="text-sm text-gray-600">Luis Miguel</p>
+                        <p class="text-xs italic text-gray-500">La escucho con bastante regularidad pensando en ti</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section 4: What I Appreciate Most (Small Details) -->
+        <section class="mb-12 p-8 bg-white rounded-2xl shadow-xl border-t-8 border-primary-pink">
+            <h2 class="text-3xl font-bold text-deep-rose mb-6 text-center">
+                Las Cosas Pequeñas Que Más Adoro De Ti
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                <ul class="list-circle">
+                    <li>El sonido de tu risa.</li>
+                    <li>Cuando me muerdes (prometo aguantar ahora sí jsjs) y me das besitos en la mejilla.</li>
+                    <li>Como te acurrucas conmigo en el amanecer.</li>
+                </ul>
+                <ul class="list-circle">
+                    <li>Como me mimas y me haces sentir como niño chiquito.</li>
+                    <li>Tu manera de pensar financieramente sobre nuestro futuro.</li>
+                    <li>La manera en cómo te esfuerzas por expresar qué te gusta de mi aunque no sea fácil para ti expresarte desde ese lado (pero lo haces muy biennn jsjs).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- New Section 5: Our Adventures (Milestones) -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-deep-rose mb-6 border-b-2 border-secondary-gold pb-2">
+                Algunos De Nuestros Momentos Importantes Juntos
+            </h2>
+            <div class="space-y-6">
+                <!-- Milestone 1 -->
+                <div class="bg-white p-5 rounded-xl shadow-md border-r-4 border-primary-pink flex items-start space-x-4">
+                    <span class="text-2xl text-secondary-gold font-extrabold">1.</span>
+                    <div>
+                        <h3 class="font-bold text-deep-rose">Tu cumpleaños 🥳💐🎂</h3>
+                        <p class="text-gray-700">Contribuir a que se haga realidad un picnic bonito para ti me dió mucha alegría y verte llorar de la emoción le dió todo el sentido al detalle.</p>
+                    </div>
+
+                </div>
+                <!-- Milestone 2 -->
+                <div class="bg-white p-5 rounded-xl shadow-md border-r-4 border-primary-pink flex items-start space-x-4">
+                    <span class="text-2xl text-secondary-gold font-extrabold">2.</span>
+                    <div>
+                        <h3 class="font-bold text-deep-rose">Cuando te regalé las flores amarillas</h3>
+                        <p class="text-gray-700"> Siento que te hice muy feliz y me nació por como me trataste y lo fiel que eres 🥰.</p>
+                    </div>
+                </div>
+                <!-- Milestone 3 -->
+                <div class="bg-white p-5 rounded-xl shadow-md border-r-4 border-primary-pink flex items-start space-x-4">
+                    <span class="text-2xl text-secondary-gold font-extrabold">3.</span>
+                    <div>
+                        <h3 class="font-bold text-deep-rose">Cuando te propuse ser mi novia con el Snoopy y la cajita</h3>
+                        <p class="text-gray-700"> Es primera vez que hice una propuesta así y no me arrepiento para nada. Me encanta cuando me envias o subes videos acariciando a Snoopy de verdad 🥺</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Future Excitement / Reflection -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-deep-rose mb-6 border-b-2 border-secondary-gold pb-2">
+                Reflexión de Dos Meses y Mirada al Futuro
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Favorite Memory -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-secondary-gold">
+                    <h3 class="text-2xl font-semibold text-deep-rose mb-3">Estamos siendo una relación aún más sólida</h3>
+                    <p class="text-gray-700">
+                        <span class="font-bold text-primary-pink"></span> Estos dos meses han sido increíbles y creo que ambos le hemos aportando dinamismo y alegría a la relación. Siento que estamos madurando como pareja y me hace muy feliz 💞
+                    </p>
+                </div>
+                <!-- Future Excitement -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-secondary-gold">
+                    <h3 class="text-2xl font-semibold text-deep-rose mb-3">Hacia el Futuro</h3>
+                    <p class="text-gray-700">
+                        <span class="font-bold text-primary-pink"></span> Estoy emocionado por lo que nos espera juntos y seguir contigo mi amorchito. Crezcamos juntos y apoyemonos mutuamente juntos. 💞
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Section: A Love Letter Box -->
+        <section class="mb-12">
+            <div class="bg-primary-pink p-8 rounded-3xl shadow-2xl text-white text-center border-4 border-secondary-gold">
+                <h2 class="text-4xl font-extrabold mb-4 gold-glow">
+                    Notita Para Tí
+                </h2>
+                <p class="text-xl italic font-light leading-relaxed">
+                    Te adoro mucho. Quiero enamorarte más y más todos los días. Tu amor me brinda alegría y gracias por ser como eres conmigo, aprecio lo bonito que me manifiestas.
+                </p>
+                <p class="mt-6 text-2xl font-semibold">
+                    &mdash; Tu Novio
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center pt-8 text-gray-500">
+            <p>&copy; Siempre Tuyo. Siempre.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- Configuration ---
+        const DATE_SAID_YES = new Date('2025-08-18T00:00:00'); // Set your actual date here: 18 August 2025
+        const TARGET_DAY = 18;
+        const TARGET_MONTH = 8; // August is month 8 (1-indexed for user input)
+
+        // --- DOM Elements ---
+        const lockScreen = document.getElementById('lockScreen');
+        const mainContent = document.getElementById('mainContent');
+        const unlockButton = document.getElementById('unlockButton');
+        const inputDay = document.getElementById('inputDay');
+        const inputMonth = document.getElementById('inputMonth');
+        const errorMessage = document.getElementById('errorMessage');
+        const timerElement = document.getElementById('timer');
+
+        // --- Utility Functions ---
+
+        // Function to format the time display
+        function formatTime(diff) {
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            const pad = (num) => String(num).padStart(2, '0');
+
+            return `${days} Days ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        }
+
+        // Function to update the timer
+        function updateTimer() {
+            const now = new Date();
+            const diff = now.getTime() - DATE_SAID_YES.getTime();
+
+            if (diff >= 0) {
+                timerElement.innerHTML = formatTime(diff);
+            } else {
+                // If date is in the future, show a friendly message
+                timerElement.innerHTML = "Contando para el día especial..";
+            }
+        }
+
+        // --- Lock Screen Logic ---
+
+        function handleUnlock() {
+            const day = parseInt(inputDay.value);
+            const month = parseInt(inputMonth.value);
+
+            if (day === TARGET_DAY && month === TARGET_MONTH) {
+                // Success: Hide lock screen and show content
+                lockScreen.style.opacity = '0';
+                setTimeout(() => {
+                    lockScreen.classList.add('hidden');
+                    mainContent.classList.remove('hidden');
+                    // Start the timer when the content is visible
+                    updateTimer();
+                    setInterval(updateTimer, 1000);
+                }, 1000);
+
+            } else {
+                // Failure: Show error message
+                errorMessage.textContent = 'No es la fecha correcta mi amor jsjs. Intenta de nuevo 🥺';
+                inputDay.classList.add('border-red-500');
+                inputMonth.classList.add('border-red-500');
+                setTimeout(() => {
+                    errorMessage.textContent = '';
+                    inputDay.classList.remove('border-red-500');
+                    inputMonth.classList.remove('border-red-500');
+                }, 3000);
+            }
+        }
+
+        // Event Listeners for the lock screen
+        unlockButton.addEventListener('click', handleUnlock);
+        // Allows unlocking by pressing Enter in the input fields
+        inputDay.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleUnlock();
+        });
+        inputMonth.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleUnlock();
+        });
+
+        // Initialize on load: Hide content and ensure lock screen is visible
+        window.onload = function() {
+            mainContent.classList.add('hidden');
+            lockScreen.classList.remove('hidden');
+            lockScreen.style.opacity = '1';
+        };
+
+    </script>
+</body>
+</html>
