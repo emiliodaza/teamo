@@ -99,13 +99,6 @@
                 Felices dos meses mi niña hermosa!
             </h1>
             <p class="text-xl text-gray-500 mb-6">18 Agosto 2025 &rarr; 18 Octubre 2025</p>
-
-            <div class="p-4 bg-primary-pink text-white rounded-xl shadow-lg inline-block border-2 border-secondary-gold">
-                <h2 class="text-lg font-semibold uppercase tracking-widest mb-1">Tiempo desde que empezó nuestra bonita historia 💞</h2>
-                <div id="timer" class="text-3xl md:text-5xl font-mono font-bold">
-                    0 Días 00:00:00
-                </div>
-            </div>
         </header>
 
         <!-- Section 1: Love Reasons -->
@@ -294,7 +287,6 @@
 
     <script>
         // --- Configuration ---
-        const DATE_SAID_YES = new Date('2025-08-18T00:00:00'); // Set your actual date here: 18 August 2025
         const TARGET_DAY = 18;
         const TARGET_MONTH = 8; // August is month 8 (1-indexed for user input)
 
@@ -305,34 +297,10 @@
         const inputDay = document.getElementById('inputDay');
         const inputMonth = document.getElementById('inputMonth');
         const errorMessage = document.getElementById('errorMessage');
-        const timerElement = document.getElementById('timer');
 
         // --- Utility Functions ---
 
-        // Function to format the time display
-        function formatTime(diff) {
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            const pad = (num) => String(num).padStart(2, '0');
-
-            return `${days} Days ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-        }
-
         // Function to update the timer
-        function updateTimer() {
-            const now = new Date();
-            const diff = now.getTime() - DATE_SAID_YES.getTime();
-
-            if (diff >= 0) {
-                timerElement.innerHTML = formatTime(diff);
-            } else {
-                // If date is in the future, show a friendly message
-                timerElement.innerHTML = "Contando para el día especial..";
-            }
-        }
 
         // --- Lock Screen Logic ---
 
@@ -385,5 +353,6 @@
 </body>
 
 </html>
+
 
 
